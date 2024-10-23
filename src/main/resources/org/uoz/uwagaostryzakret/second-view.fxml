@@ -12,7 +12,7 @@
             prefHeight="400.0" prefWidth="600.0"
 >
 
-    <Label text="wtff"/>
+    <Label text="Strona2"/>
 
 </AnchorPane>
 
