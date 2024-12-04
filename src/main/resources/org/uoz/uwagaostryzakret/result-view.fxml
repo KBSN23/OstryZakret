@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.uoz.uwagaostryzakret.controllers.ResultSceneController"
+            stylesheets="@styles/style.css">
+
+    <!-- ImageView jako tło -->
+    <ImageView fitWidth="1600" fitHeight="900" preserveRatio="false">
+        <image>
+            <Image url="@images/resaultbackground.jpg" />
+        </image>
+    </ImageView>
+
+    <children>
+        <VBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+              alignment="CENTER" spacing="10">
+
+            <Label fx:id="winnerLabel"/>
+            <Label text="Wyniki węży"/>
+            <ListView fx:id="resultsListView" maxWidth="500" prefWidth="400.0" prefHeight="200.0" />
+            <Button text="Powrót do menu" onAction="#handleBackToMenuClick"/>
+        </VBox>
+
+    </children>
+</AnchorPane>

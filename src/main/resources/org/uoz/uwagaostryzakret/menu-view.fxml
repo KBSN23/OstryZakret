@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.uoz.uwagaostryzakret.scenes.IndexSceneController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 
-  <Button text="Graj offline" onAction="#onStartButtonClick"/>
-</VBox>
+<StackPane alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
+           fx:controller="org.uoz.uwagaostryzakret.controllers.IndexSceneController"
+           stylesheets="@styles/style.css">
+
+  <!-- ImageView jako tło -->
+  <ImageView fitWidth="1600" fitHeight="900" preserveRatio="false">
+    <image>
+      <Image url="@images/menubackground.jpg" />
+    </image>
+  </ImageView>
+
+  <!-- Kontener VBox dla przycisków na wierzchu obrazu -->
+  <VBox alignment="CENTER" spacing="20.0" styleClass="menu">
+    <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Button text="Graj offline" onAction="#onStartButtonClick" />
+    <Button text="Graj online" />
+    <Button text="Opcje" onAction="#onOptionsButtonClick" />
+    <Button text="Wyjdź" onAction="#onExitButtonClick" />
+  </VBox>
+
+</StackPane>

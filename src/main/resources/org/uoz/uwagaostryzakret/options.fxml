@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ListView?>
+<?import java.net.URL?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.uoz.uwagaostryzakret.controllers.OptionsSceneController"
+            prefHeight="400.0" prefWidth="600.0"
+            stylesheets="@styles/style.css">
+
+    <ImageView fitWidth="1600" fitHeight="900" preserveRatio="false">
+        <image>
+            <Image url="@images/optionsbackground.jpg" />
+        </image>
+    </ImageView>
+
+    <stylesheets>
+        <URL value="@styles/options.css" />
+    </stylesheets>
+
+
+    <children>
+        <VBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+              alignment="CENTER" spacing="10">
+            <Label text="Liczba rund" />
+            <TextField fx:id="numberOfRounds" maxWidth="100"  />
+
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Dodaj gracza" onAction="#handleAddSnake" />
+            </HBox>
+            <ListView fx:id="snakesList" prefHeight="200" maxWidth="800" styleClass="snakesList">
+                <HBox alignment="CENTER" spacing="20">
+                    <Label styleClass="snakesList_element">Nazwa</Label>
+                    <Label styleClass="snakesList_element" >Kolor</Label>
+                    <Label styleClass="snakesList_element">W lewo</Label>
+                    <Label styleClass="snakesList_element">W prawo</Label>
+                </HBox>
+            </ListView>
+
+            <Button text="Zapisz i wyjdź" onAction="#handleBackButtonClick"  fx:id="saveButton" />
+        </VBox>
+    </children>
+</AnchorPane>

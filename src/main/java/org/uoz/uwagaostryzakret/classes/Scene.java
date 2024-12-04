@@ -7,26 +7,37 @@ import org.uoz.uwagaostryzakret.Application;
 
 import java.io.IOException;
 
-abstract public class Scene  {
+public class Scene  {
     private javafx.scene.Scene scene;
-    private String title;
     private String resourceName;
-    private final int width = 800;
-    private final int height = 600;
-    protected Stage stage;
-    protected FXMLLoader loader;
+    private final int width = 1600;
+    private final int height = 900;
+    public Stage stage;
+    public FXMLLoader loader;
 
-    public Scene(Stage stage, String title, String resourceName) throws IOException {
+    public Scene(Stage stage, String title, String resourceName, History history, Options options) throws IOException {
+        history.add(this);
+
         this.stage = stage;
-        this.title = title;
         this.resourceName = resourceName;
         this.loader = new FXMLLoader(Application.class.getResource(this.resourceName));
         this.scene = new javafx.scene.Scene(loader.load(), width, height);
-
         this.stage.setTitle(title);
+
+        Controller controller = loader.getController();
+        controller.setup(stage, history, options);
     }
 
-    abstract public void setupController();
+    public Scene(Stage stage, String title, String resourceName) throws IOException {
+        this.stage = stage;
+        this.resourceName = resourceName;
+        this.loader = new FXMLLoader(Application.class.getResource(this.resourceName));
+        this.scene = new javafx.scene.Scene(loader.load(), width, height);
+        this.stage.setTitle(title);
+
+        Controller controller = loader.getController();
+        controller.setup(stage);
+    }
 
     public void setScene(){
         this.stage.setScene(this.scene);
@@ -34,5 +45,8 @@ abstract public class Scene  {
 
     public void show(){
         this.stage.show();
+
+        Controller controller = loader.getController();
+        controller.init();
     }
 }
