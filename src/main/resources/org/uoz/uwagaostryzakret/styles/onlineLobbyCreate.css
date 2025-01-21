@@ -1,0 +1,64 @@
+/* Tło całego AnchorPane */
+.root {
+    -fx-background-color: transparent; /* Obraz ustawia tło */
+}
+
+/* Styl pola tekstowego */
+.text-field {
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+    -fx-background-color: white;
+    -fx-border-color: #007bff;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-text-fill: black;
+}
+
+/* Styl przycisków */
+.button {
+    -fx-background-color: linear-gradient(#e0e0e0, #bdbdbd);
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+    -fx-font-family: "Verdana", sans-serif;
+    -fx-font-weight: bold;
+    -fx-padding: 8 16;
+    -fx-border-color: #aaaaaa;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 4, 0.8, 0, 2);
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(#bdbdbd, #a6a6a6);
+    -fx-cursor: hand;
+}
+
+.button:pressed {
+    -fx-background-color: linear-gradient(#aaaaaa, #cccccc);
+    -fx-effect: none;
+    -fx-translate-y: 1px;
+}
+
+/* Styl ListView */
+.list-view {
+    -fx-background-color: rgba(255, 255, 255, 0.85);
+    -fx-border-color: #0077aa;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5;
+    -fx-control-inner-background: transparent;
+   }
+
+/* Styl komórek w ListView */
+.list-cell {
+    -fx-font-size: 16px;
+    -fx-font-family: "Verdana", sans-serif;
+    -fx-alignment: center;
+}
+
+#usersList * {
+    -fx-text-fill: black; /* Czarny kolor tekstu */
+}

@@ -25,9 +25,10 @@
     </padding>
 
     <Button text="Graj offline" onAction="#onStartButtonClick" />
-    <Button text="Graj online" />
+    <Button text="Graj online" onAction="#onLobbyButtonClick" />
     <Button text="Opcje" onAction="#onOptionsButtonClick" />
     <Button text="Wyjdź" onAction="#onExitButtonClick" />
+
   </VBox>
 
 </StackPane>

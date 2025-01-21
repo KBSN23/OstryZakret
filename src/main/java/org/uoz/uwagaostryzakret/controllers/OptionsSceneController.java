@@ -27,31 +27,31 @@ public class OptionsSceneController extends Controller {
 
 
     public void validate(){
-        boolean hasDuplicateColors = globalOptions.snakes.stream()
+        boolean hasDuplicateColors = Options.snakes.stream()
                 .map(Snake::getColor)
                 .anyMatch(color ->
-                        globalOptions.snakes.stream()
+                        Options.snakes.stream()
                                 .filter(s -> s.getColor().equals(color))
                                 .count() > 1
                 );
 
 
-        boolean hasDuplicateNames = globalOptions.snakes.stream()
+        boolean hasDuplicateNames = Options.snakes.stream()
                 .map(Snake::getName)
                 .anyMatch(name ->
-                        globalOptions.snakes.stream()
+                        Options.snakes.stream()
                                 .filter(s -> s.getName().equals(name))
                                 .count() > 1
                 );
 
 
-        boolean hasDuplicateKeys = globalOptions.snakes.stream()
+        boolean hasDuplicateKeys = Options.snakes.stream()
                 .anyMatch(snake -> {
                     if (snake.getRightKey() == snake.getLeftKey()) {
                         return true;
                     }
 
-                    return globalOptions.snakes.stream()
+                    return Options.snakes.stream()
                             .anyMatch(otherSnake -> {
                                 if (snake == otherSnake) return false;
 
@@ -88,10 +88,10 @@ public class OptionsSceneController extends Controller {
             }
         });
 
-        numberOfRounds.setText(Integer.toString(globalOptions.numberOfRounds));
+        numberOfRounds.setText(Integer.toString(Options.numberOfRounds));
 
 
-        globalOptions.snakes.forEach(snake -> {
+        Options.snakes.forEach(snake -> {
             HBox box = new HBox();
 
             ColorPicker colorPicker = new ColorPicker();
@@ -107,12 +107,12 @@ public class OptionsSceneController extends Controller {
             colorPicker.setValue(snake.getColor());
 
             removeButton.setOnAction(event -> {
-                globalOptions.snakes.remove(snake);
+                Options.snakes.remove(snake);
                 init();
                 validate();
             });
 
-            if(globalOptions.snakes.size() == 2){
+            if(Options.snakes.size() == 2){
                 removeButton.setDisable(true);
             }
 
@@ -190,13 +190,13 @@ public class OptionsSceneController extends Controller {
             numberOfRounds.setText(String.valueOf(MIN_VALUE));
 
         }
-        globalOptions.numberOfRounds = value;
+        Options.numberOfRounds = value;
     }
 
     @FXML
     public void handleAddSnake(){
-        Snake newSnake = new Snake(Color.RED, KeyCode.A, KeyCode.D, "Snake" + globalOptions.snakes.size() + 1);
-        this.globalOptions.snakes.add(newSnake);
+        Snake newSnake = new Snake(Color.RED, KeyCode.A, KeyCode.D, "Snake" + Options.snakes.size() + 1);
+        Options.snakes.add(newSnake);
         this.init();
         this.validate();
     }
@@ -208,7 +208,7 @@ public class OptionsSceneController extends Controller {
 
     @FXML
     public void handleBackButtonClick(){
-        Options.saveOptionsToFile(globalOptions, "options.ser");
+        Options.saveOptionsToFile("options.ser");
         backToPreviousScene();
     }
 

@@ -39,7 +39,7 @@
             <HBox spacing="10" alignment="CENTER">
                 <Button text="Dodaj gracza" onAction="#handleAddSnake" />
             </HBox>
-            <ListView fx:id="snakesList" prefHeight="200" maxWidth="800" styleClass="snakesList">
+            <ListView fx:id="snakesList" prefHeight="400" maxWidth="800" styleClass="snakesList">
                 <HBox alignment="CENTER" spacing="20">
                     <Label styleClass="snakesList_element">Nazwa</Label>
                     <Label styleClass="snakesList_element" >Kolor</Label>

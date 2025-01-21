@@ -18,7 +18,15 @@ public class IndexSceneController extends Controller {
     }
 
     @FXML
-    protected   void onExitButtonClick() throws  IOException {
+    protected void onLobbyButtonClick() throws IOException {
+        openNewScene("Lista serwerów", "online-lobby.fxml");
+    }
+
+    @FXML
+    protected void onExitButtonClick() throws  IOException {
         exit();
     }
+
+    @Override
+    public void init(){}
 }

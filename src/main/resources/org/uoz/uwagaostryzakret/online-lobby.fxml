@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.uoz.uwagaostryzakret.controllers.OnlineLobbyController"
+            prefHeight="900.0" prefWidth="1600.0"
+            stylesheets="@styles/style.css">
+
+    <!-- Tło aplikacji -->
+    <ImageView fitWidth="1600" fitHeight="900" preserveRatio="false" AnchorPane.topAnchor="0.0" AnchorPane.leftAnchor="0.0">
+        <image>
+            <Image url="@images/lobby_background.jpg" />
+        </image>
+    </ImageView>
+
+    <!-- Główna zawartość -->
+    <VBox alignment="CENTER" spacing="20.0"
+          AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+          styleClass="lobbies">
+
+        <!-- Pasek górny -->
+        <HBox alignment="CENTER" spacing="10" styleClass="toolbar">
+            <Label text="Lista poczekalni" />
+            <Button onAction="#createNewLobby" text="Stwórz nową" />
+            <Button onAction="#refresh" text="Odśwież" />
+
+            <HBox alignment="CENTER" spacing="5">
+                <TextField fx:id="userNameField" />
+                <Button onAction="#setUserName" text="Zmień nazwę" />
+            </HBox>
+        </HBox>
+
+        <!-- Lista poczekalni -->
+        <ListView fx:id="lobbiesList" styleClass="lobbies" maxWidth="800"/>
+
+        <!-- Przycisk powrotu -->
+        <Button onAction="#handleBackButtonClick" text="Powrót" />
+    </VBox>
+</AnchorPane>
